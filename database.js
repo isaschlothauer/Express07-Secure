@@ -9,34 +9,4 @@ const database = mysql.createPool({
     database: process.env.DB_NAME,
     });
 
-const getMovies = (req, res) => {
-    database
-        .query("select * from movies")
-        .then(([movies]) => {
-        res.json(movies);
-        })
-        .catch((err) => {
-        console.error(err);
-        res.status(500).send("Error retrieving data from database");
-        });
-    };
-
-// database
-// .getConnection()
-// .then(() => {
-//     console.log("Can reach database");
-// })
-// .catch((err) => {
-//     console.error(err);
-// });
-
-// database
-//   .query("select * from movies")
-//   .then(([movies]) => {
-//     console.log(movies);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
-
 module.exports = database;
